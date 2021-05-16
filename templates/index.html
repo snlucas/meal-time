@@ -1,0 +1,14 @@
+{% extends "skeleton.html" %}
+{% from "card.html" import card %}
+
+
+{% block content %}
+  <ul class="list-group align-items-center">
+  {% for meal in list_meals['a'] %}
+    <li class="list-group-item">
+      {{ card(meal['thumbnail'], meal['name'], meal['instructions'][:160], meal['area'], meal['category']) }}
+    </li>
+    <br>
+  {% endfor %}
+  </ul>
+{% endblock %}
