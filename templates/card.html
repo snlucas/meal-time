@@ -1,13 +1,16 @@
-{% macro card(thumbnail, title, instructions, area, category) -%}
+{% macro title(link, title) -%}
+<a href="{{ link }}">{{ title }}</a>
+{%- endmacro %}
 
+{% macro card(thumbnail, title, instructions, area, category) -%}
 <div class="card">
   <div class="row">
     <div class="col-4">
-      <img src="{{ thumbnail }}" style="max-width: 250px;">
+      <img src="{{ thumbnail }}" style="max-width: 250px;" alt="A image of a {% raw %}{{ title }}{% endraw %} recipe."></img>
     </div>
     <div class="col-8">
       <div class="card-body">
-        <h5 class="card-title"><a href="">{{ title }}</a></h5>
+        <h5 class="card-title">{{ title }}</h5>
         <p class="card-text">{{ instructions }}...</p>
         <p class="card-text">
           <small class="badge bg-success">{{ area }}</small>

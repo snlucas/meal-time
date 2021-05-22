@@ -1,14 +1,18 @@
 {% extends "skeleton.html" %}
-{% from "card.html" import card %}
+{% from "card.html" import card, title %}
 
+
+{% block title %}Meal Time|List of recipies starting with letter A{% endblock %}
+
+{% block nav_url %}#{% endblock %}
+{% block nav_brand %}Meal Time{% endblock %}
 
 {% block content %}
-  <ul class="list-group align-items-center">
+  <ul class="list-group align-items-center d-grid gap-3">
   {% for meal in list_meals['a'] %}
     <li class="list-group-item">
-      {{ card(meal['thumbnail'], meal['name'], meal['instructions'][:160], meal['area'], meal['category']) }}
+      {{ card(meal['thumbnail'], title(url_for('meal_instructions', id=meal['id']), meal['name']), meal['instructions'][:160], meal['area'], meal['category']) }}
     </li>
-    <br>
   {% endfor %}
   </ul>
 {% endblock %}
