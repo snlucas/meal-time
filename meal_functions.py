@@ -2,7 +2,7 @@ import requests
 import string
 
 
-# Make request, and bring recipe as a dictionary
+# Make a request, and bring recipe as a dictionary
 # If is needed a list of recipies instead only one, switch 'is_list' arg for True
 def get_meal(meal_url, is_list=False):
     r = requests.get(meal_url)
@@ -10,15 +10,22 @@ def get_meal(meal_url, is_list=False):
 
     return meal
 
+def get_meal_by_id(id):
+    url = f"https://www.themealdb.com/api/json/v1/1/lookup.php?i={id}"
+    meal = get_meal(url)
+
+    return recipe(meal)
+
 # Create a recipe with the important data
 def recipe(meal):
+    id           = meal['idMeal']
     name         = meal['strMeal']
     category     = meal['strCategory']
     area         = meal['strArea']
     thumbnail    = meal['strMealThumb']
     instructions = meal['strInstructions']
 
-    return {"name": name, "category": category, "area": area, "thumbnail": thumbnail, "instructions": instructions}
+    return {"id": id, "name": name, "category": category, "area": area, "thumbnail": thumbnail, "instructions": instructions}
 
 # Search for a meal as string, and return a recipe
 def search(meal_name):
