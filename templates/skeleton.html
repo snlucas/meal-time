@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="utf-8">
   <title>{% block title %}{% endblock %}</title>
 </head>
-
 <body>
-  <nav class="navbar navbar-light bg-light d-flex flex-row justify-content-between">
+  <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="{% block nav_url %}{% endblock %}">{% block nav_brand %}{% endblock %}</a>
-
-
-    <ul class="pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">&laquo;</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">A</a></li>
-      <li class="page-item active" aria-current="page">
-        <a class="page-link" href="#">B</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">C</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">&raquo;</a>
-      </li>
-    </ul>
   </nav>
-  <div class="container" style="max-width: 800px;">
+  <div class="container mt-5" style="max-width: 800px;">
     {% block content %}{% endblock %}
   </div>
+
+  {% block pagination %}{% endblock %}
+
+  <footer class="border-top bg-dark mt-1">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-4">
+          <div class="p-3 bg-light">
+            <a href="https://www.themealdb.com/api.php" target="_blank">
+              <img src="https://www.themealdb.com/images/logo-small.png" alt="TheMealDB logo">
+            </a>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="p-3 bg-light">
+            <a href="https://github.com/snlucas/meal-time">
+              <img src="{{ url_for('static', filename='img/Octocat.png') }}" alt="Logo for Github project repo" style="max-width: 50px;">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-white text-center">Made with &#10084; by <a href="https://github.com/snlucas" target="_blank">Lucas Nogueira.</a></p>
+  </footer>
+
   <!-- CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-  <footer class="border-top p-4">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  </footer>
 </body>
-
 </html>
