@@ -9,6 +9,7 @@ In this project, the main stack is Python and Flask, because it's a simple proje
 - [x] Add pagination
 - [x] Add Dockerfile
 - [ ] Make deploy
+- [ ] Dark Mode
 
 ## Requirements
 - **TheMealDB:** Off course it's a fundamental requirement to this app works 😁. You can find more information about TheMealDB API [here](https://www.themealdb.com/api.php).
