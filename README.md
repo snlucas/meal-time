@@ -7,7 +7,7 @@ In this project, the main stack is Python and Flask, because it's a simple proje
 - [x] Put the data in the web App
 - [x] Use Bootstrap to personalize the App
 - [x] Add pagination
-- [x] Make deploy
+- [ ] Make deploy
 
 ## Requirements
 - **TheMealDB:** Off course it's a fundamental requirement to this app works 😁. You can find more information about TheMealDB API [here](https://www.themealdb.com/api.php).
