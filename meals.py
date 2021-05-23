@@ -8,6 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/<letter>", methods=["GET"])
 def index(letter="a"):
+    letter = letter.lower()
     letters = string.ascii_letters
     previous_letter = "" if letter == "a" else letters[letters.index(letter) - 1]
     next_letter = "" if letter == "z" else letters[letters.index(letter) + 1]
