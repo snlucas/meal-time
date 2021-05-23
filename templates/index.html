@@ -2,17 +2,61 @@
 {% from "card.html" import card, title %}
 
 
-{% block title %}Meal Time|List of recipies starting with letter A{% endblock %}
+{% block title %}Meal Time|List of recipies starting with letter {{ letter|upper }}{% endblock %}
 
 {% block nav_url %}#{% endblock %}
 {% block nav_brand %}Meal Time{% endblock %}
 
 {% block content %}
   <ul class="list-group align-items-center d-grid gap-3">
-  {% for meal in list_meals['a'] %}
+  {% for meal in list_meals[letter] %}
     <li class="list-group-item">
       {{ card(meal['thumbnail'], title(url_for('meal_instructions', id=meal['id']), meal['name']), meal['instructions'][:160], meal['area'], meal['category']) }}
     </li>
   {% endfor %}
   </ul>
+{% endblock %}
+
+{% block pagination %}
+<ul class="pagination justify-content-center mt-4">
+  <li class="page-item disabled">
+    <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+  </li>
+
+  {% if letter == "a" %}
+  <li class="page-item active" aria-current="page">
+    <a class="page-link" href="#">A</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">B</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">C</a>
+  </li>
+  {% elif letter == "z" %}
+  <li class="page-item">
+    <a class="page-link" href="#">Z</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">Y</a>
+  </li>
+  <li class="page-item active" aria-current="page">
+    <a class="page-link" href="#">Z</a>
+  </li>
+  {% else %}
+  <li class="page-item">
+    <a class="page-link" href="#">{{ previous_letter|upper }}</a>
+  </li>
+  <li class="page-item active" aria-current="page">
+    <a class="page-link" href="#">{{ letter|upper }}</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="#">{{ next_letter|upper }}</a>
+  </li>
+  {% endif %}
+
+  <li class="page-item">
+    <a class="page-link" href="#">&raquo;</a>
+  </li>
+</ul>
 {% endblock %}
