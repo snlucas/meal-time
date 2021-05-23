@@ -19,44 +19,54 @@
 
 {% block pagination %}
 <ul class="pagination justify-content-center mt-4">
+  {% if letter == "a" %}
   <li class="page-item disabled">
     <a class="page-link" href="#" tabindex="-1">&laquo;</a>
   </li>
-
-  {% if letter == "a" %}
   <li class="page-item active" aria-current="page">
     <a class="page-link" href="#">A</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="#">B</a>
+    <a class="page-link" href="{{ url_for('index', letter='B') }}">B</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="#">C</a>
+    <a class="page-link" href="{{ url_for('index', letter='C') }}">C</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="{{ url_for('index', letter='B') }}">&raquo;</a>
   </li>
   {% elif letter == "z" %}
   <li class="page-item">
-    <a class="page-link" href="#">Z</a>
+    <a class="page-link" href="{{ url_for('index', letter='Y') }}" tabindex="-1">&laquo;</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="#">Y</a>
+    <a class="page-link" href="{{ url_for('index', letter='X') }}">X</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="{{ url_for('index', letter='Y') }}">Y</a>
   </li>
   <li class="page-item active" aria-current="page">
     <a class="page-link" href="#">Z</a>
   </li>
+  <li class="page-item disabled">
+    <a class="page-link" href="#">&raquo;</a>
+  </li>
   {% else %}
   <li class="page-item">
-    <a class="page-link" href="#">{{ previous_letter|upper }}</a>
+    <a class="page-link" href="{{ url_for('index', letter=previous_letter) }}" tabindex="-1">&laquo;</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="{{ url_for('index', letter=previous_letter) }}">{{ previous_letter|upper }}</a>
   </li>
   <li class="page-item active" aria-current="page">
     <a class="page-link" href="#">{{ letter|upper }}</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="#">{{ next_letter|upper }}</a>
+    <a class="page-link" href="{{ url_for('index', letter=next_letter) }}">{{ next_letter|upper }}</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="{{ url_for('index', letter=next_letter) }}">&raquo;</a>
   </li>
   {% endif %}
-
-  <li class="page-item">
-    <a class="page-link" href="#">&raquo;</a>
-  </li>
 </ul>
 {% endblock %}
