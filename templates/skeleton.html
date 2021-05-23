@@ -5,7 +5,7 @@
   <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light justify-content-center">
     <a class="navbar-brand" href="{% block nav_url %}{% endblock %}">{% block nav_brand %}{% endblock %}</a>
   </nav>
   <div class="container mt-5" style="max-width: 800px;">
@@ -14,18 +14,18 @@
 
   {% block pagination %}{% endblock %}
 
-  <footer class="border-top bg-dark mt-1">
+  <footer class="border-top bg-dark mt-1 pt-2 bottom-0">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-4">
-          <div class="p-3 bg-light">
+          <div class="p-3">
             <a href="https://www.themealdb.com/api.php" target="_blank">
               <img src="https://www.themealdb.com/images/logo-small.png" alt="TheMealDB logo">
             </a>
           </div>
         </div>
         <div class="col-4">
-          <div class="p-3 bg-light">
+          <div class="p-3">
             <a href="https://github.com/snlucas/meal-time">
               <img src="{{ url_for('static', filename='img/Octocat.png') }}" alt="Logo for Github project repo" style="max-width: 50px;">
             </a>
