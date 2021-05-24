@@ -3,10 +3,10 @@ import meal_functions
 import string
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 
-@app.route("/")
-@app.route("/<letter>", methods=["GET"])
+@application.route("/")
+@application.route("/<letter>", methods=["GET"])
 def index(letter="a"):
     letter = letter.lower()
     letters = string.ascii_letters
@@ -14,10 +14,10 @@ def index(letter="a"):
     next_letter = "" if letter == "z" else letters[letters.index(letter) + 1]
     return render_template("index.html", list_meals=meal_functions.list_meals(), letter=letter, previous_letter=previous_letter, next_letter=next_letter)
 
-@app.route("/recipe/<int:id>", methods=["GET"])
+@application.route("/recipe/<int:id>", methods=["GET"])
 def meal_instructions(id):
     meal = meal_functions.get_meal_by_id(id)
     return render_template("meal_instructions.html", meal=meal)
 
 if __name__ == "__main__":
-   app.run(host='0.0.0.0')
+    application.run(host='0.0.0.0')
