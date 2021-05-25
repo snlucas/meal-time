@@ -11,6 +11,7 @@ In this project, the main stack is Python and Flask, because it's a simple proje
 - [x] Add pagination
 - [x] Add Dockerfile
 - [x] Make deploy
+- [ ] Reduce requests to the API
 - [ ] Dark Mode
 
 ## Requirements
