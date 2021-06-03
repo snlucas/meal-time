@@ -32,7 +32,7 @@ ___
 Using **Python**:
 ```python
 $ pip install -r requirements.txt
-$ export FLASK_APP=meals.py
+$ export FLASK_APP=application.py
 $ export FLASK_ENV=development
 $ flask run
 ```
