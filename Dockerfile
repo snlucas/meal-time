@@ -11,9 +11,9 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 RUN mkdir templates
 
-COPY meals.py .
+COPY application.py .
 COPY meal_functions.py .
 COPY templates/ templates/
 
 # Specify the command to run on container start
-CMD [ "python", "./meals.py" ]
+CMD [ "python", "./application.py" ]
