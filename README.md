@@ -38,3 +38,4 @@ $ flask run
 ```
 ___
 Go to your Web Browser, and search for **127.0.0.1:5000**
+If you are using **Docker**, and it doesn't worked, try changing *127.0.0.1:5000* to **localhost:5000** or, if you use **Docker for Desktop**, try running through it. 
