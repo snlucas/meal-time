@@ -31,7 +31,7 @@ $ docker run -p 5000:5000 a-tag-name
 ___
 Using **Python**:
 ```python
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 $ export FLASK_APP=meals.py
 $ export FLASK_ENV=development
 $ flask run
