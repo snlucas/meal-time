@@ -12,6 +12,8 @@ In this project, the main stack is Python and Flask, because it's a simple proje
 - [x] Add Dockerfile
 - [x] Make deploy
 - [ ] Reduce requests to the API
+- [ ] Make responsive
+- [ ] Create DB to save favorite meals
 - [ ] Dark Mode
 
 ## Requirements
