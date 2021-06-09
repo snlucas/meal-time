@@ -11,7 +11,10 @@ In this project, the main stack is Python and Flask, because it's a simple proje
 - [x] Add pagination
 - [x] Add Dockerfile
 - [x] Make deploy
-- [ ] Reduce requests to the API
+- [x] Reduce requests to the API
+- [ ] Solve replace bug in meal_instructions.html file
+- [ ] Make tests
+- [ ] Create DB to save favorite meals
 - [ ] Dark Mode
 
 ## Requirements
@@ -36,3 +39,5 @@ $ flask run
 ```
 ___
 Go to your Web Browser, and search for **127.0.0.1:5000**
+
+If you are using Docker, and it doesn't worked, try changing 127.0.0.1:5000 to localhost:5000 or, if you use Docker for Desktop, try running through it.
