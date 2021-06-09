@@ -1,0 +1,46 @@
+<!-- Base template -->
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-light bg-light">
+    <h1 class="ml-2"><a class="navbar-brand" href="{% block nav_url %}http://127.0.0.1:5000/{% endblock %}">Meal Time</a></h1>
+    <a class="float-right" href="{% block right_nav_item_url %}{% endblock %}">{% block right_nav_item %}{% endblock %}</a>
+  </nav>
+  <div class="container mt-5" style="max-width: 48rem;">
+    {% block content %}{% endblock %}
+  </div>
+
+  {% block pagination %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="container-fluid border-top bg-dark mt-1 pt-2">
+	  <div class="row">
+         <p class="col-sm-8">
+            <a href="https://www.themealdb.com/api.php" target="_blank">
+              <img src="https://www.themealdb.com/images/logo-small.png" alt="TheMealDB logo">
+            </a>
+          </p>
+        
+          <p class="col-sm-1">
+            <a href="https://github.com/snlucas/meal-time">
+              <img src="{{ url_for('static', filename='img/Octocat.png') }}" alt="Logo for Github project repo" style="max-width: 50px;">
+            </a>
+          </p>
+	  </div>
+    <p class="text-white text-center mb-0">Made with &#10084; by <a href="https://github.com/snlucas" target="_blank">Lucas Nogueira.</a></p>
+  </footer>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</body>
+</html>
