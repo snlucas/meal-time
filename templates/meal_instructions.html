@@ -1,18 +1,20 @@
-{% extends "skeleton.html" %}
+{% extends "base/skeleton.html" %}
 
 
-{% block title %}Meal Time|Instructions to make {{ meal['name'] }}{% endblock %}
+{% block title %}Meal Time | Instructions to make {{ meal.name }}{% endblock %}
 
-{% block nav_url %}javascript:history.back(){% endblock %}
-{% block nav_brand %}<i class="bi bi-arrow-left"></i>{% endblock %}
+<!-- Return to the last page -->
+{% block right_nav_item_url %}javascript:history.back(){% endblock %}
+{% block right_nav_item %}<i class="bi bi-arrow-left float-end"></i>{% endblock %}
 
 {% block content %}
-<h1 class="text-warning">{{ meal['name'] }}</h1>
-<img src="{{ meal['thumbnail'] }}" class="img-thumbnail rounded" alt="A image of a {{ meal['name'] }} recipe." style="max-width: 500px;">
+<h1 class="text-warning">{{ meal.name }}</h1>
+<img src="{{ meal.thumbnail }}" class="img-thumbnail rounded" alt="A image of a {{ meal.name }} recipe." style="max-width: 500px;">
 <h6>
-  <span class="badge bg-secondary">{{ meal['category'] }}</span>
-  <span class="badge bg-secondary">{{ meal['area'] }}</span>
+  <span class="badge bg-success mt-2">{{ meal.category }}</span>
+  <span class="badge bg-warning">{{ meal.area }}</span>
 </h6>
 <br />
-<p>{{ meal['instructions'].replace('.', '.\n') }}</p>
+<!-- Break line at each line dot -->
+<p class="mb-4">{{ meal.instructions | replace('.', '.\n') }}</p>
 {% endblock %}

@@ -1,22 +1,26 @@
-{% extends "skeleton.html" %}
-{% from "card.html" import card, title %}
+<!-- First page, with a meal list -->
 
 
-{% block title %}Meal Time|List of recipies starting with letter {{ letter|upper }}{% endblock %}
+{% extends "base/skeleton.html" %}
+{% from "base/macros.html" import card, title %}
+
+
+{% block title %}Meal Time | List of recipies starting with letter {{ letter|upper }}{% endblock %}
 
 {% block nav_url %}#{% endblock %}
-{% block nav_brand %}Meal Time{% endblock %}
 
 {% block content %}
+  <!-- Meal list -->
   <ul class="list-group align-items-center d-grid gap-3">
   {% for meal in list_meals[letter] %}
     <li class="list-group-item">
-      {{ card(meal['thumbnail'], title(url_for('meal_instructions', id=meal['id']), meal['name']), meal['instructions'][:160], meal['area'], meal['category']) }}
+      {{ card(meal.thumbnail, title(url_for('meal_instructions', id=meal.id), meal.name), meal.instructions[:320], meal.area, meal.category) }}
     </li>
   {% endfor %}
   </ul>
 {% endblock %}
 
+<!-- Alphabetic pagination with three items per page -->
 {% block pagination %}
 <ul class="pagination justify-content-center mt-4">
   {% if letter == "a" %}
@@ -27,23 +31,23 @@
     <a class="page-link" href="#">A</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter='B') }}">B</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter='B') }}">B</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter='C') }}">C</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter='C') }}">C</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter='B') }}">&raquo;</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter='B') }}">&raquo;</a>
   </li>
   {% elif letter == "z" %}
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter='Y') }}" tabindex="-1">&laquo;</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter='Y') }}" tabindex="-1">&laquo;</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter='X') }}">X</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter='X') }}">X</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter='Y') }}">Y</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter='Y') }}">Y</a>
   </li>
   <li class="page-item active" aria-current="page">
     <a class="page-link" href="#">Z</a>
@@ -53,19 +57,19 @@
   </li>
   {% else %}
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter=previous_letter) }}" tabindex="-1">&laquo;</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter=previous_letter) }}" tabindex="-1">&laquo;</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter=previous_letter) }}">{{ previous_letter|upper }}</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter=previous_letter) }}">{{ previous_letter|upper }}</a>
   </li>
   <li class="page-item active" aria-current="page">
     <a class="page-link" href="#">{{ letter|upper }}</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter=next_letter) }}">{{ next_letter|upper }}</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter=next_letter) }}">{{ next_letter|upper }}</a>
   </li>
   <li class="page-item">
-    <a class="page-link" href="{{ url_for('index', letter=next_letter) }}">&raquo;</a>
+    <a class="page-link" href="{{ url_for('page_letter', letter=next_letter) }}">&raquo;</a>
   </li>
   {% endif %}
 </ul>
