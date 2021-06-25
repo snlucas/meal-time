@@ -2,7 +2,7 @@
 The purpose of the project is to develop a web app to list TheMealDB meals.
 In this project, the main stack is Python and Flask, because it's a simple project, and doesn't need a huge structure.
 
-[Test the App (old)](http://flask-env.eba-k4emjss7.sa-east-1.elasticbeanstalk.com/)
+[Test the App (not working)](http://flask-env.eba-k4emjss7.sa-east-1.elasticbeanstalk.com/)
 
 ### Status
 - [x] Make requests to TheMealDB and made functions to handle the data
